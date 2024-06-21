@@ -3,20 +3,20 @@ pipeline {
   stages {
     stage('build') {
       parallel {
-        stage('linux-armv6') {
-          agent {label 'linux-armv6'}
+        stage('linux-WSL-Ubantu') {
+          agent {label 'WSL-Ubantu'}
           steps {
             sh 'go install dpctl'
           }
         }
-        stage('darwin-amd64') {
-          agent {label 'darwin-amd64'}
+        stage('linux-Ubantu') {
+          agent {label 'Ubantu'}
           steps {
             sh 'go install dpctl'
           }
         }
-        stage('linux-amd64') {
-          agent {label 'linux-amd64'}
+        stage('linux-VaneshUbantu1') {
+          agent {label 'VaneshUbantu1'}
           steps {
             sh 'go install dpctl'
           }
@@ -25,20 +25,20 @@ pipeline {
     }
     stage('run') {
       parallel {
-        stage('linux-armv6') {
-          agent {label 'linux-armv6'}
+        stage('linux-WSL-Ubantu') {
+          agent {label 'WSL-Ubantu'}
           steps {
             sh 'dpctl'
           }
         }
-        stage('darwin-amd64') {
-          agent {label 'darwin-amd64'}
+        stage('linux-Ubantu') {
+          agent {label 'Ubantu'}
           steps {
             sh 'dpctl'
           }
         }
-        stage('linux-amd64') {
-          agent {label 'linux-amd64'}
+        stage('linux-VaneshUbantu1') {
+          agent {label 'VaneshUbantu1'}
           steps {
             sh 'dpctl'
           }
